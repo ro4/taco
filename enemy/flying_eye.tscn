@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://dyjdn8nlmr0x1"]
+
+[ext_resource type="Texture2D" uid="uid://dhnq7b4c6v26h" path="res://art/Monster_Creatures_Fantasy(Version 1.3)/Flying eye/Attack3.png" id="1_12ham"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_54qeu"]
+
+[sub_resource type="Animation" id="Animation_nqbx2"]
+resource_name = "fly_right"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_6q8nv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b8s31"]
+_data = {
+"RESET": SubResource("Animation_6q8nv"),
+"fly_right": SubResource("Animation_nqbx2")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p2l1q"]
+animation = &"fly_right"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i5nrn"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_k6cxw"]
+states/fly_right/node = SubResource("AnimationNodeAnimation_p2l1q")
+states/fly_right/position = Vector2(426.667, 120)
+transitions = ["Start", "fly_right", SubResource("AnimationNodeStateMachineTransition_i5nrn")]
+
+[node name="FlyingEye" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.194317, -0.0956473, 0)
+shape = SubResource("SphereShape3D_54qeu")
+
+[node name="Sprite3D" type="Sprite3D" parent="RigidBody3D"]
+pixel_size = 0.03
+alpha_cut = 2
+texture_filter = 0
+texture = ExtResource("1_12ham")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RigidBody3D"]
+libraries = {
+"": SubResource("AnimationLibrary_b8s31")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="RigidBody3D"]
+tree_root = SubResource("AnimationNodeStateMachine_k6cxw")
+anim_player = NodePath("../AnimationPlayer")

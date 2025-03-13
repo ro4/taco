@@ -107,6 +107,83 @@ tracks/4/keys = {
 "values": [Vector3(1.37728, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_1td0u"]
+resource_name = "attack1_left"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [26, 27, 28, 29, 30, 31, 32]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector3(0, 0, 0), Vector3(-0.5, -0.3, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape3D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.698132)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sword/CollisionShape3D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sword:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.377, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_mo6d4"]
 resource_name = "attack1_right"
 length = 0.7
@@ -398,83 +475,6 @@ tracks/3/keys = {
 "values": [Vector3(0, 0, -0.546288)]
 }
 
-[sub_resource type="Animation" id="Animation_1td0u"]
-resource_name = "attack1_left"
-length = 0.7
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [26, 27, 28, 29, 30, 31, 32]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite3D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape3D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector3(0, 0, 0), Vector3(-0.5, -0.3, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CollisionShape3D:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.698132)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sword/CollisionShape3D:disabled")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Sword:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-1.377, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oy0ay"]
 _data = {
 "RESET": SubResource("Animation_erkhm"),
@@ -499,7 +499,6 @@ script = ExtResource("1_f4iry")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0609505, 0.0317488, 9.87411)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(0.854459, -0.519519, 0, 0.519519, 0.854459, 0, 0, 0, 1, -0.374995, -0.123234, 0)
 shape = SubResource("CapsuleShape3D_wh0p3")
 
 [node name="AnimationTree" type="AnimationTree" parent="CharacterBody3D"]
@@ -513,7 +512,6 @@ libraries = {
 
 [node name="Sprite3D" type="Sprite3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 0.999999, 0.00116909, 0, -0.00116909, 0.999999, 0, 0.704956, 0.0165751)
-flip_h = true
 pixel_size = 0.05
 shaded = true
 alpha_cut = 2
